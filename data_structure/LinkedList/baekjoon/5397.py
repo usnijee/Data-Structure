@@ -15,14 +15,18 @@ class Kiroker(object):
     def __init__(self):
         self.head = Node()
         self.tail = Node(prev=self.head)
+        self.head.next = self.tail
         self.cursor = self.tail
 
-    def insert_bk(self, cursor, value):
+    def insert_bk(self, value):
         new_node = Node(value)
-        cur_prev = cursor.prev
+        cur_prev = self.cursor.prev
+        
+        new_node.next = self.cursor
+        new_node.prev = cur_prev
         cur_prev.next = new_node
-        cursor.prev = new_node
-    
+        self.cursor.prev = new_node
+
     def remove(self):
         cur_prev = self.cursor.prev
         self.cursor.prev = cur_prev.prev
@@ -36,15 +40,14 @@ class Kiroker(object):
             else:
                 print(p.value)
             p = p.next
-
-
-kiro = Kiroker()    
+  
 n = int(input())
 for _ in range(n):
+    kiro = Kiroker()  
     k = list(input())
     for i in k:
         if i == '<': 
-            if kiro.cursor.prev is not None:
+            if kiro.cursor.prev is not kiro.head:
                 kiro.cursor = kiro.cursor.prev
             else:
                 pass
@@ -56,9 +59,8 @@ for _ in range(n):
         elif i == '-':
             kiro.remove()
         else:
-            kiro.insert_bk(kiro.cursor,i)
-
-kiro.printResults()
+            kiro.insert_bk(i)
+    kiro.printResults()
             
 
         
