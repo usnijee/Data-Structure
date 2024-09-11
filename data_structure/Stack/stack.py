@@ -13,3 +13,16 @@ stacck.pop()
 stacck.pop()
 
 print(stacck) # 1입력->2입력->3입력->3출력->2출력 
+
+'''
+stack class
+'''
+class stack(object):
+    def __init__(self):
+        self.s = []
+    
+    def insert(self, v):
+        self.s.append(v)
+    
+    def remove(self):
+        self.s.pop()
