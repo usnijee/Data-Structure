@@ -28,6 +28,9 @@ class Kiroker(object):
         self.cursor.prev = new_node
 
     def remove(self):
+        if self.cursor.prev == self.head:
+            return  # 더미 헤드 바로 뒤에 삭제할 노드가 없으면 그냥 리턴
+        
         cur_prev = self.cursor.prev
         self.cursor.prev = cur_prev.prev
         cur_prev.prev.next = self.cursor
@@ -40,7 +43,7 @@ class Kiroker(object):
             else:
                 print(p.value)
             p = p.next
-  
+
 n = int(input())
 for _ in range(n):
     kiro = Kiroker()  
