@@ -7,10 +7,8 @@
 3. 닫힌이 먼저 나올수는 없음 
 
 접근>
-1. 리스트를 형성 후 입력 문자열을 반복문을 통해 열린괄호는 리스트에 append하고 닫힌 괄호가 오면
+->리스트를 형성 후 입력 문자열을 반복문을 통해 열린괄호는 리스트에 append하고 닫힌 괄호가 오면
 리스트의 열린괄호들을 LIFO형태로 닫힌 괄호와 대응 시켜서 최종적으로 리스트의 개수가 0개가 되면 됨
-2. 문제점 -> 근데 (] , [}와 같은 형태는 호환이 안됌 
-3. 
 '''
 
 class Solution(object):
@@ -25,8 +23,8 @@ class Solution(object):
                     stack.pop()
                 else:
                     return False
-        if stack:
+        if stack: # stack에 원소가 존재하는 경우 
             return False
-        else:
+        else:     # stack에 원속가 존재하지 않는 경우
             return True
         
