@@ -15,24 +15,18 @@
 
 class Solution(object):
     def isValid(self, s):
-        k = []
-        # s = s[1:-1]
-        cnt = 0
+        stack = []
+        dic = {'(':')','{':'}','[':']'}
         for i in s:
-            if i in "({[":
-                k.append(i)
-            elif i in ")}]":
-                if len(k) == 0:
-                    cnt += 1
+            if i in dic.keys():
+                stack.append(i)
+            else:
+                if stack and dic[stack[-1]] == i:  #딕셔너리를 이용하여 열린-닫힌의 쌍이 맞을때를 구현 
+                    stack.pop()
                 else:
-                    y = k.pop()
-                    if (y == '(' and i != ')') or (y == '[' and i != ']') or (y == '{' and i =='}'):
-                        cnt += 0
-                    else:
-                        
-
-
-              
-l = Solution()
-s = input()
-l.isValid(s)
+                    return False
+        if stack:
+            return False
+        else:
+            return True
+        
