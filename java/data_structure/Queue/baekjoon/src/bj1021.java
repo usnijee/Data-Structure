@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.Scanner;
 
-public class baekjoon1021 {
+public class bj1021 {
 
     public static void main(String[] args) {
 
@@ -58,23 +58,25 @@ public class baekjoon1021 {
 
     private static boolean compareMidOf(int selectNum, Deque<Integer> deque) {
         ArrayList<Integer> dequeAsList = new ArrayList<>(deque);
-        int middle = dequeAsList.get(deque.size() / 2);
+        int middleValueIdx = deque.size() / 2;
+        int selectNumIdx = dequeAsList.indexOf(selectNum);
 
-        if (selectNum < middle) {
+        // selectNum 즉, 대상이 deque의 중앙보다 앞에 존재시 true 반환
+        if (selectNumIdx < middleValueIdx) {
             return true;
         } else {
             return false;
         }
     }
 
-    private static void makeCounterCW(Deque<Integer> deque) {
-        int num = deque.pollLast();
-        deque.offerFirst(num);
-    }
-
     private static void makeCW(Deque<Integer> deque) {
         int num = deque.pollFirst();
         deque.offerLast(num);
+    }
+
+    private static void makeCounterCW(Deque<Integer> deque) {
+        int num = deque.pollLast();
+        deque.offerFirst(num);
     }
 
 
