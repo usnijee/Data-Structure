@@ -83,6 +83,4 @@ public class bj1021 {
         deque.offerFirst(num);
     }
 
-
-
 }
