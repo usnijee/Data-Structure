@@ -62,7 +62,7 @@ public class bj1021 {
         int selectNumIdx = dequeAsList.indexOf(selectNum);
 
         // selectNum 즉, 대상이 deque의 중앙보다 앞에 존재시 true 반환
-        if (selectNumIdx < middleValueIdx) {
+        if (selectNumIdx <= middleValueIdx) {
             return true;
         } else {
             return false;
