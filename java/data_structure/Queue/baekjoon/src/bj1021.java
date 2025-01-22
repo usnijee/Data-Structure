@@ -62,6 +62,10 @@ public class bj1021 {
         int selectNumIdx = dequeAsList.indexOf(selectNum);
 
         // selectNum 즉, 대상이 deque의 중앙보다 앞에 존재시 true 반환
+        /**
+         * selectNumIdx == middleValueIdx 이면 CW 즉, selectNum이 deque의 좌측으로 이동해야 인덱스 1에 더 빨리 도달한다
+         * 따라서, compareMidOf가 true를 반환하도록 해야함
+         */
         if (selectNumIdx <= middleValueIdx) {
             return true;
         } else {
